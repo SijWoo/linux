@@ -16,6 +16,9 @@
 / {
 	interrupt-parent = <&intc>;
 
+    #address-cells = <1>;
+	#size-cells = <1>;
+
 	aliases {
 		gpio0 = &gpio_ptc;
 		gpio1 = &gpio_ptd;
