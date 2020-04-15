@@ -131,4 +131,27 @@
 			IMX7ULP_PAD_PTD0__PTD0		0x3
 		>;
 	};
+
+    pinctrl_lpspi3: lpspi3grp {
+        fsl,pins = <
+            IMX7ULP_PAD_PTF16__LPSPI3_SIN      0x300
+            IMX7ULP_PAD_PTF17__LPSPI3_SOUT     0x300
+            IMX7ULP_PAD_PTF18__LPSPI3_SCK      0x300
+            IMX7ULP_PAD_PTF19__LPSPI3_PCS0     0x300
+        >;
+    };
+};
+
+&lpspi3 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_lpspi3>;
+	status = "okay";
+
+	spidev0: spi@0 {
+		reg = <0>;
+		compatible = "spidev0";
+		spi-max-frequency = <1000000>;
+	};
 };
